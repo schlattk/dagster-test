@@ -7,5 +7,7 @@ setuptools.setup(
         "dagster==0.14.19",
         "dagit==0.14.19",
         "pytest",
+        "dagster-dbt",
+        "dagster-airbyte",
     ],
 )
