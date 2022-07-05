@@ -9,5 +9,7 @@ setuptools.setup(
         "pytest",
         "dagster-dbt",
         "dagster-airbyte",
+        "dagster_ssh",
+        "paramiko"
     ],
 )

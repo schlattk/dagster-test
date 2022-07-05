@@ -8,8 +8,12 @@ orchestrator_poc.egg-info/dependency_links.txt
 orchestrator_poc.egg-info/requires.txt
 orchestrator_poc.egg-info/top_level.txt
 orchestrator_poc/jobs/__init__.py
+orchestrator_poc/jobs/airbyte_dbt.py
+orchestrator_poc/jobs/airbyte_jobs.py
+orchestrator_poc/jobs/dbt_jobs.py
 orchestrator_poc/jobs/say_hello.py
 orchestrator_poc/ops/__init__.py
+orchestrator_poc/ops/airbyte_ops.py
 orchestrator_poc/ops/hello.py
 orchestrator_poc/schedules/__init__.py
 orchestrator_poc/schedules/my_hourly_schedule.py
