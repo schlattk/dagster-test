@@ -8,7 +8,7 @@ sync_google = airbyte_sync_op.configured(
 
 def ssh():
     ssh = paramiko.SSHClient()
-    hostname = "ec2-52-215-25-222.eu-west-1.compute.amazon"
+    hostname = "ec2-52-215-25-222.eu-west-1.compute.amazonaws.com"
     username = "ec2-user"
     key_path = "~/.ssh/airbyte_key"
     return ssh.connect(hostname, username=username, key_filename=key_path)
