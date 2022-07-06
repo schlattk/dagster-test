@@ -1,6 +1,6 @@
 from dagster import job
 from dagster_airbyte import airbyte_resource
-from orchestrator_poc.ops.airbyte_ops import sync_google, sync_salesforce, ssh_connection, close_connection
+from orchestrator_poc.ops.airbyte_ops import sync_google, sync_salesforce, ssh_connection
 
 new_airbyte_resource = airbyte_resource.configured(
     {
@@ -14,4 +14,3 @@ new_airbyte_resource = airbyte_resource.configured(
 def run_airbyte():
     ssh_connection()
     sync_salesforce()
-    close_connection()
