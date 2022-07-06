@@ -6,6 +6,11 @@ sync_google = airbyte_sync_op.configured(
     name="google"
 )
 
+sync_salesforce = airbyte_sync_op.configured(
+    {"connection_id": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"},
+    name="sync_salesforce"
+)
+
 def ssh():
     ssh = paramiko.SSHClient()
     hostname = "ec2-52-215-25-222.eu-west-1.compute.amazonaws.com"
@@ -13,9 +18,5 @@ def ssh():
     key_path = "/home/ec2-user/.ssh/airbyte_key"
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(hostname, username=username, key_filename=key_path)
-    return ssh
-
-sync_salesforce = airbyte_sync_op.configured(
-    {"connection_id": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"},
-    name="sync_salesforce"
-)
+    sync_salesforce()
+    ssh.close()
