@@ -18,5 +18,4 @@ def ssh():
     key_path = "/home/ec2-user/.ssh/airbyte_key"
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(hostname, username=username, key_filename=key_path)
-    sync_salesforce()
     ssh.close()
