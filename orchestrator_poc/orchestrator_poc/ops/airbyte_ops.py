@@ -1,3 +1,4 @@
+from dagster import op
 from dagster_airbyte import airbyte_sync_op
 import paramiko
 
