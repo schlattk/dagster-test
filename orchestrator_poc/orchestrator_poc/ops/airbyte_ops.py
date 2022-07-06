@@ -8,7 +8,7 @@ sync_google = airbyte_sync_op.configured(
 
 sync_salesforce = airbyte_sync_op.configured(
     {"connection_id": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"},
-    name="sync_salesforce"
+    name="salesforce_stronger_nudge"
 )
 
 def ssh():
