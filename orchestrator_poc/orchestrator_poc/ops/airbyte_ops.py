@@ -17,6 +17,5 @@ def ssh():
 ssh_connection = ssh()
 
 sync_salesforce = airbyte_sync_op.configured(
-    {"connection_id": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"},
-    name="salesforce-stronger-nudge"
+    {"connection_id": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"}
 )
