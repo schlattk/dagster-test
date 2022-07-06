@@ -23,7 +23,6 @@ def ssh():
     ssh.connect(hostname, username=username, key_filename=key_path)
     try:
         ssh.exec_command(sync_query)
-    except: socket.error as e:
+    except:
         print('Error')
-        print(e)
     ssh.close()
