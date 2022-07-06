@@ -11,6 +11,7 @@ def ssh():
     hostname = "ec2-52-215-25-222.eu-west-1.compute.amazonaws.com"
     username = "ec2-user"
     key_path = "~/.ssh/airbyte_key"
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     return ssh.connect(hostname, username=username, key_filename=key_path)
 
 create_connection = ssh()
