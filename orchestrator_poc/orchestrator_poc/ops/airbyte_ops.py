@@ -11,6 +11,7 @@ sync_salesforce = airbyte_sync_op.configured(
     name="salesforce_stronger_nudge"
 )
 
+@op
 def ssh():
     ssh = paramiko.SSHClient()
     hostname = "ec2-52-215-25-222.eu-west-1.compute.amazonaws.com"
