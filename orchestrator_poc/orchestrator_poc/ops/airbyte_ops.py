@@ -20,9 +20,13 @@ def ssh():
     key_path = "/home/ec2-user/.ssh/airbyte_key"
     sync_query = 'curl -X POST localhost:8000/api/v1/connections/sync / -H "Content-Type: application/json" / -d {"connectionId": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"}'
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(hostname, username=username, key_filename=key_path)
+    try:
+        ssh.connect(hostname, username=username, key_filename=key_path)
+    except:
+        print('connection failed')
     try:
         ssh.exec_command(sync_query)
+        print('Success')
     except:
         print('Error')
     ssh.close()
