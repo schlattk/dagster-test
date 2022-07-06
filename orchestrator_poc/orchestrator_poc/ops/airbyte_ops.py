@@ -14,9 +14,9 @@ def ssh():
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     return ssh.connect(hostname, username=username, key_filename=key_path)
 
-create_connection = ssh()
+ssh_connection = ssh()
 
-close_connection = connection.close()
+close_connection = ssh_connection.close()
 
 
 sync_salesforce = airbyte_sync_op.configured(
