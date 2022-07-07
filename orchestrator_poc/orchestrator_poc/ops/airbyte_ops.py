@@ -12,8 +12,6 @@ sync_salesforce = airbyte_sync_op.configured(
     name="salesforce_stronger_nudge"
 )
 
-sync_and_poll_salesforce = sync_and_poll(connection_id, poll_interval=10, poll_timeout=None)[source]
-
 @op
 def ssh():
     ssh = paramiko.SSHClient()
