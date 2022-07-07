@@ -31,7 +31,7 @@ def ssh():
     except:
         print('connection failed')
     try:
-        ssh.exec_command(curl_command)
+        sync_salesforce()
     except:
         print('Error')
     ssh.close()
