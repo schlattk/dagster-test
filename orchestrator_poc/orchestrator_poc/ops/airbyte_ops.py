@@ -23,10 +23,9 @@ def ssh():
     try:
         ssh.connect(hostname, username=username, key_filename=key_path)
     except:
-        print('connection failed')
+        touch('connection failed')
     try:
-        ssh.exec_command(sync_query)
-        print('Success')
+        ssh.exec_command('touch check.txt')
     except:
         print('Error')
     ssh.close()
