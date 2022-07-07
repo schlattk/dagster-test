@@ -12,5 +12,4 @@ new_airbyte_resource = airbyte_resource.configured(
 
 @job(resource_defs={"airbyte":new_airbyte_resource})
 def run_airbyte():
-    ssh()
-    sync_salesforce()
+    ssh(sync_salesforce())
