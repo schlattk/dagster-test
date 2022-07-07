@@ -12,6 +12,8 @@ sync_salesforce = airbyte_sync_op.configured(
     name="salesforce_stronger_nudge"
 )
 
+sync_and_poll_salesforce = sync_and_poll(connection_id, poll_interval=10, poll_timeout=None)[source]
+
 @op
 def ssh():
     ssh = paramiko.SSHClient()
@@ -19,7 +21,7 @@ def ssh():
     username = "ec2-user"
     key_path = "/home/ec2-user/.ssh/airbyte_key"
     url = "localhost:8000/api/v1/connections/sync"
-    connection = "{'connectionId': 'c1a5fdf3-903f-4d86-8601-5b6462afe40e'}"
+    connection = '{"connectionId": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"}'
     curl_command = f"""curl -X {url}
                             -H "Content-Type: application/json"
                             -d {connection}
@@ -32,7 +34,7 @@ def ssh():
         print('connection failed')
     try:
         ssh.exec_command('touch before.txt')
-        sync_salesforce()
+        ssh.exec_command(curl_command)
         ssh.exec_command('touch after.txt')
     except:
         ssh.exec_command('touch error.txt')
