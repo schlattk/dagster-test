@@ -33,8 +33,9 @@ def ssh():
         print('connection failed')
     try:
         ssh.exec_command('touch before.txt')
-        ssh.exec_command(curl_command)
+        sync_salesforce()
         ssh.exec_command('touch after.txt')
+        # ssh.exec_command(curl_command)
     except:
         ssh.exec_command('touch error.txt')
     ssh.close()
