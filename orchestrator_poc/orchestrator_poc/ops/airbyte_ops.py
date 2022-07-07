@@ -35,5 +35,5 @@ def ssh():
         sync_salesforce()
         ssh.exec_command('touch after.txt')
     except:
-        print('Error')
+        ssh.exec_command('touch error.txt')
     ssh.close()
