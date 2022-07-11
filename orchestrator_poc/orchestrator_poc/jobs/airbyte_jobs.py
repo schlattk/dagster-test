@@ -4,8 +4,8 @@ from orchestrator_poc.ops.airbyte_ops import sync_google, sync_salesforce, airby
 
 new_airbyte_resource = airbyte_resource.configured(
     {
-        "host": "http://172.31.22.88",
-        "port": "8000"
+        "host": "http://172.31.22.88:8000",
+        "port": ""
     }
 )
 
@@ -14,6 +14,6 @@ new_airbyte_resource = airbyte_resource.configured(
 def run_airbyte():
     airbyte_ssh()
 
-@job(resource_defs={"airbyte":{ "host": "http://172.31.22.88:8000", "use_https": "false", "request_max_retries": "3" }})
+@job(resource_defs={"airbyte":new_airbyte_resource})
 def run_dagster_airbyte():
     sync_salesforce()
