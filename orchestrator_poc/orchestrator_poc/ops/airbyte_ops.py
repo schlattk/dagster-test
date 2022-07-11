@@ -31,8 +31,8 @@ def airbyte_ssh():
 @op
 def ssh():
     client = paramiko.SSHClient()
-    hostname = "ec2-52-215-25-222.eu-west-1.compute.amazonaws.com"
-    username = "ec2-user"
+    hostname = ""
+    username = ""
     key_path = "/home/ec2-user/.ssh/airbyte_key"
     url = "localhost:8000/api/v1/connections/sync"
     connection = '{"connectionId": "c1a5fdf3-903f-4d86-8601-5b6462afe40e"}'
