@@ -4,8 +4,8 @@ from orchestrator_poc.ops.airbyte_ops import sync_google, sync_salesforce, airby
 
 new_airbyte_resource = airbyte_resource.configured(
     {
-        "host": "http://172.31.22.88:8000",
-        "port": ""
+        "host": "http://172.31.22.88",
+        "port": "8000"
     }
 )
 
