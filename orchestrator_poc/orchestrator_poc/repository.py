@@ -1,7 +1,7 @@
 from dagster import repository
 
 from orchestrator_poc.jobs.say_hello import run_in_order
-from orchestrator_poc.jobs.airbyte_jobs import run_airbyte
+from orchestrator_poc.jobs.airbyte_jobs import run_dagster_airbyte
 from orchestrator_poc.jobs.dbt_jobs import run_dbt
 from orchestrator_poc.jobs.airbyte_dbt import run_airbyte_dbt
 from orchestrator_poc.schedules.my_hourly_schedule import basic_schedule
