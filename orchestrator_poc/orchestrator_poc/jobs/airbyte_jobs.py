@@ -14,6 +14,6 @@ new_airbyte_resource = airbyte_resource.configured(
 def run_airbyte():
     airbyte_ssh()
 
-@job(resource_defs={"airbyte":new_airbyte_resource})
+@job(resource_defs={"airbyte":{ "host": "http://172.31.22.88:8000", "use_https": "false", "request_max_retries": "3" }})
 def run_dagster_airbyte():
     sync_salesforce()
