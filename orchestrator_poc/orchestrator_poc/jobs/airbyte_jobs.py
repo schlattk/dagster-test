@@ -11,6 +11,10 @@ new_airbyte_resource = airbyte_resource.configured(
     }
 )
 
+run_staging_models = dbt_rpc_run.configured(
+{"models": "dbt_test_model"},
+name="dbt_test_model",
+)
 
 @job(resource_defs={"airbyte":new_airbyte_resource})
 def run_airbyte():
@@ -22,4 +26,4 @@ def run_dagster_airbyte():
 
 @job(resource_defs={"airbyte":new_airbyte_resource, "dbt_rpc": test_dbt_rpc_resource})
 def run_airbyte_dbt():
-    dbt_rpc_run(sync_salesforce())
+    run_staging_models(sync_salesforce())
