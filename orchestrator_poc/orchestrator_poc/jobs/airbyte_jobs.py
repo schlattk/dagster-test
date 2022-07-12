@@ -12,7 +12,7 @@ new_airbyte_resource = airbyte_resource.configured(
 )
 
 run_staging_models = dbt_rpc_run.configured(
-{"models": "dbt_test_model"},
+{"models": ["staging"]},
 name="dbt_test_model",
 )
 
