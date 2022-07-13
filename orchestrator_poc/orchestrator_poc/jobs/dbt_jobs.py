@@ -4,7 +4,7 @@ from orchestrator_poc.ops.dbt_ops import run_dbt_op
 
 test_dbt_rpc_resource = dbt_rpc_resource.configured({
     "host": { "env": "DBT_HOST" },
-
+    "port": { "env": "DBT_PORT" }
 })
 
 test_dbt_rpc_sync_resource = dbt_rpc_sync_resource.configured({
