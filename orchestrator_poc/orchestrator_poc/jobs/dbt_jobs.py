@@ -3,7 +3,7 @@ from dagster_dbt import dbt_rpc_resource, dbt_run_op, dbt_rpc_sync_resource, dbt
 
 test_dbt_rpc_resource = dbt_rpc_resource.configured({
     "host": { "env": "DBT_HOST" },
-    "port": { "env": "DBT_PORT" },
+    
 })
 
 test_dbt_rpc_sync_resource = dbt_rpc_sync_resource.configured({
