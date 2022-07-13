@@ -11,6 +11,6 @@ def dbt_run_ssh():
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(hostname, username=username, key_filename=key_path)
     client.exec_command('touch before.txt')
-    client.exec_command("run_job.sh")
+    stdin, stdout, stderr = client.exec_command('run_job.sh')
     client.exec_command('touch after.txt')
     client.close()
