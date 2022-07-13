@@ -4,8 +4,8 @@ import paramiko
 @op
 def dbt_run_ssh():
     client = paramiko.SSHClient()
-    hostname ="$DBT_SSH_HOST"
-    username ="$DBT_SSH_USER"
+    hostname ="ec2-34-244-209-39.eu-west-1.compute.amazonaws.com"
+    username ="ec2-user"
     key_path = "/home/ec2-user/.ssh/airbyte_key"
     run_command= "cd dbt_repo && dbt run"
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
