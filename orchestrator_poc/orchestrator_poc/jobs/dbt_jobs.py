@@ -13,7 +13,7 @@ test_dbt_rpc_sync_resource = dbt_rpc_sync_resource.configured({
 })
 
 
-@job(resource_defs={ "dbt_rpc": test_dbt_rpc_resource })
+@job(resource_defs={ "dbt": test_dbt_rpc_resource })
 def run_dbt_rpc_job():
     dbt_run_op()
 
