@@ -1,6 +1,6 @@
 from dagster import job
 from dagster_dbt import dbt_rpc_resource, dbt_run_op, dbt_rpc_sync_resource, dbt_rpc_run
-from orchestrator_poc.ops.dbt_ops import dbt_run_ssh
+from orchestrator_poc.ops.dbt_ops import dbt_run_ssh, dbt_rpc_op
 
 test_dbt_rpc_resource = dbt_rpc_resource.configured({
     "host": { "env": "DBT_HOST" },

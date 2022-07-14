@@ -1,4 +1,5 @@
 from dagster import op
+from dagster_dbt import dbt_rpc_resource, dbt_run_op, dbt_rpc_sync_resource, dbt_rpc_run
 import paramiko
 
 @op
@@ -14,3 +15,10 @@ def dbt_run_ssh():
     pty = channel.get_pty()
     shell = client.invoke_shell()
     shell.send(run_command)
+
+test_dbt_rpc_resource = dbt_rpc_resource.configured({
+    "host": { "env": "DBT_HOST" },
+    "port": { "env": "DBT_PORT" }
+})
+
+dbt_rpc_op = dbt_rpc_run

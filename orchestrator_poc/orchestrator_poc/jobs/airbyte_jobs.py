@@ -1,8 +1,9 @@
 from dagster import job
 from dagster_airbyte import airbyte_resource, airbyte_sync_op
 from dagster_dbt import dbt_rpc_run
-from orchestrator_poc.jobs.dbt_jobs import test_dbt_rpc_resource, test_dbt_rpc_sync_resource
+from orchestrator_poc.jobs.dbt_jobs import test_dbt_rpc_resource, test_dbt_rpc_sync_resource, run_dbt_rpc_sync_job
 from orchestrator_poc.ops.airbyte_ops import sync_google, sync_salesforce, airbyte_ssh, ssh
+from orchestrator_poc.ops.dbt_ops import dbt_rpc_op
 
 new_airbyte_resource = airbyte_resource.configured(
     {
@@ -24,6 +25,6 @@ def run_airbyte():
 def run_dagster_airbyte():
     sync_salesforce()
 
-@job(resource_defs={"airbyte":new_airbyte_resource, "dbt": test_dbt_rpc_sync_resource})
+@job(resource_defs={"airbyte":new_airbyte_resource, "dbt_rpc": test_dbt_rpc_sync_resource})
 def run_airbyte_dbt():
-    sync_salesforce()
+    dbt_rpc_op(sync_salesforce())
