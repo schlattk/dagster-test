@@ -14,7 +14,7 @@ def orchestrator_poc():
     For hints on building your Dagster repository, see our documentation overview on Repositories:
     https://docs.dagster.io/overview/repositories-workspaces/repositories
     """
-    jobs = [run_in_order, run_dagster_airbyte, run_dbt_job, run_airbyte_dbt, run_dbt_ssh_job]
+    jobs = [run_in_order, run_dagster_airbyte, run_dbt_rpc_job, run_dbt_rpc_sync_job, run_airbyte_dbt, run_dbt_ssh_job]
     schedules = [basic_schedule]
     sensors = [my_sensor]
 

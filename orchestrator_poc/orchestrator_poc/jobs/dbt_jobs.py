@@ -8,13 +8,18 @@ test_dbt_rpc_resource = dbt_rpc_resource.configured({
 })
 
 test_dbt_rpc_sync_resource = dbt_rpc_sync_resource.configured({
-    "host": { "env": "DBT_HOST" }
+    "host": { "env": "DBT_HOST" },
+    "port": { "env": "DBT_PORT" }
 })
 
 
 @job(resource_defs={ "dbt_rpc": test_dbt_rpc_resource })
-def run_dbt_job():
-    dbt_rpc_run()
+def run_dbt_rpc_job():
+    dbt_run_op()
+
+@job(resource_defs={"dbt":test_dbt_rpc_sync_resource})
+def run_dbt_rpc_sync_job():
+    dbt_run_op()
 
 @job
 def run_dbt_ssh_job():
