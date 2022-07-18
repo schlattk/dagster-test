@@ -1,4 +1,4 @@
-from dagster import op
+from dagster import op, In, Nothing
 from dagster_dbt import dbt_rpc_resource, dbt_run_op, dbt_rpc_sync_resource, dbt_rpc_run
 import paramiko
 
@@ -22,3 +22,7 @@ test_dbt_rpc_resource = dbt_rpc_resource.configured({
 })
 
 dbt_rpc_op = dbt_rpc_run
+
+@op(ins={"start": In(Nothing)})
+def dbt_rpc_run_op():
+    dbt_rpc_run()
