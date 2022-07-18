@@ -25,4 +25,4 @@ dbt_rpc_op = dbt_rpc_run
 
 @op(ins={"start": In(Nothing)})
 def dbt_rpc_run_op():
-    dbt_rpc_op()
+    dbt_rpc_op(resource_defs={"dbt_rpc": test_dbt_rpc_resource})
