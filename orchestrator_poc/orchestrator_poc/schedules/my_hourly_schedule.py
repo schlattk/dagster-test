@@ -1,7 +1,7 @@
 from dagster import schedule, ScheduleDefinition
 
 
-from orchestrator_poc.jobs.airbyte_jobs import run_airbyte
+
 
 
 # @schedule(cron_schedule="50 * * * *", job=say_hello_job)
@@ -16,4 +16,4 @@ from orchestrator_poc.jobs.airbyte_jobs import run_airbyte
 #     run_config = {}
 #     return run_config
 
-basic_schedule = ScheduleDefinition(job=run_airbyte, cron_schedule="30 * * * *")
+# basic_schedule = ScheduleDefinition(job=run_airbyte, cron_schedule="30 * * * *")
