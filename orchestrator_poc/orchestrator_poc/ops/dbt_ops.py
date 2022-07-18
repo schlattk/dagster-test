@@ -23,6 +23,8 @@ test_dbt_rpc_resource = dbt_rpc_resource.configured({
 
 dbt_rpc_op = dbt_rpc_run
 
+dbt_op = dbt_run_op
+
 @op(ins={"start": In(Nothing)})
 def dbt_rpc_run_op():
     dbt_rpc_run
