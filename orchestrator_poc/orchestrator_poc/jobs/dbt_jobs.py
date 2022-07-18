@@ -19,7 +19,7 @@ def run_dbt_rpc_job():
 
 @job(resource_defs={"dbt_rpc":test_dbt_rpc_resource})
 def run_dbt_rpc_sync_job():
-    dbt_rpc_run()
+    dbt_rpc_op()
 
 @job
 def run_dbt_ssh_job():
