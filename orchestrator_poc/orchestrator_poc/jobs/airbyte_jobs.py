@@ -19,7 +19,7 @@ name="dbt_test_model",
 
 @graph
 def run_dbt_after_airbyte():
-    dbt_rpc_run_op(start=sync_salesforce())
+    dbt_rpc_run_op(start=sync_salesforce(), "dbt_rpc": test_dbt_rpc_resource)
 
 @job(resource_defs={"airbyte":new_airbyte_resource})
 def run_airbyte():
