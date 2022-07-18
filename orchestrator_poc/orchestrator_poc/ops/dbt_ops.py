@@ -16,7 +16,7 @@ def dbt_run_ssh():
     shell = client.invoke_shell()
     shell.send(run_command)
 
-test_dbt_rpc_resource = dbt_rpc_resource.configured({
+test_dbt_rpc_resource = dbt_rpc_sync_resource.configured({
     "host": { "env": "DBT_HOST" },
     "port": { "env": "DBT_PORT" }
 })
