@@ -29,6 +29,6 @@ def run_airbyte():
 def run_dagster_airbyte():
     sync_salesforce()
 
-@job(resource_defs={"airbyte":new_airbyte_resource, "dbt_rpc": test_dbt_rpc_sync_resource})
+@job(resource_defs={"airbyte":new_airbyte_resource, "dbt_rpc": test_dbt_rpc_resource})
 def run_airbyte_and_then_dbt():
     run_dbt_after_airbyte()
