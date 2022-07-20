@@ -17,4 +17,4 @@ def my_hourly_schedule():
     run_config = {}
     return run_config
 
-basic_schedule = ScheduleDefinition(job=run_airbyte_and_then_dbt_cli, cron_schedule="0 2 * * *")
+basic_schedule = ScheduleDefinition(job=run_airbyte_and_then_dbt_cli, cron_schedule="0 11 * * *")
