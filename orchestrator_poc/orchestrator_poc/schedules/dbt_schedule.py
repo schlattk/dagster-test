@@ -1,9 +1,6 @@
 from dagster import schedule, ScheduleDefinition
 from orchestrator_poc.jobs.airbyte_jobs import run_airbyte_and_then_dbt_cli
-
-
-
-
+from orchestrator_poc.jobs.dbt_jobs import full_dbt_job
 
 @schedule(cron_schedule="50 * * * *", job=run_airbyte_and_then_dbt_cli)
 def my_hourly_schedule():
@@ -18,3 +15,5 @@ def my_hourly_schedule():
     return run_config
 
 basic_schedule = ScheduleDefinition(job=run_airbyte_and_then_dbt_cli, cron_schedule="40 14 * * *")
+
+dbt_schedule = ScheduleDefinition(job=full_dbt_job, cron_schedule="40 16 * * *")
