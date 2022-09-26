@@ -21,4 +21,4 @@ def seed_dbt_job():
 
 @job(resource_defs={ "dbt": test_dbt_rpc_sync_resource })
 def full_dbt_job():
-    dbt_test_op(start_after=[dbt_seed_op(), dbt_run_op()])
+    dbt_test_op(start_after=[dbt_seed_op(start_after=[dbt_run_op()])])
