@@ -9,4 +9,4 @@ dbt_test_project = dbt_test_op
 
 @op(required_resource_keys={"dbt"})
 def dbt_deps_op(context):
-    context.resources.dbt.rpc("deps")
+    context.resources.dbt.cli(command="deps")
