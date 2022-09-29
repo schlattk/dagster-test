@@ -4,12 +4,13 @@ setuptools.setup(
     name="orchestrator_poc",
     packages=setuptools.find_packages(exclude=["orchestrator_poc_tests"]),
     install_requires=[
-        "dagster==0.15.3",
-        "dagit==0.15.3",
+        "dagster",
+        "dagit",
         "pytest",
         "dagster-dbt",
         "dagster-airbyte",
         "dagster_ssh",
+        "dagster_slack",
         "paramiko"
     ],
 )
