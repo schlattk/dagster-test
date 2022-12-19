@@ -25,4 +25,5 @@ def run_airbyte_and_then_dbt_cli():
 
 @job(resource_defs={"airbyte":new_airbyte_resource, "dbt": test_dbt_rpc_sync_resource})
 def run_airbyte_and_then_dbt_cli_new():
-    sync_salesforce(sync_salesforce_fund())
+    sync_salesforce()
+    sync_salesforce_fund()
