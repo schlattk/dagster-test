@@ -12,8 +12,12 @@ new_airbyte_resource = airbyte_resource.configured(
 )
 
 @job(resource_defs={"airbyte":new_airbyte_resource})
-def run_dagster_airbyte():
+def run_salesforces_stronger_nudge():
     sync_salesforce()
+
+@job(resource_defs={"airbyte":new_airbyte_resource})
+def run_salesforce_fund():
+    sync_salesforce_fund()
 
 @job(resource_defs={"airbyte":new_airbyte_resource, "dbt": test_dbt_rpc_sync_resource})
 def run_airbyte_and_then_dbt_cli():
