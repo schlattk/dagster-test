@@ -22,3 +22,7 @@ def run_salesforce_fund():
 @job(resource_defs={"airbyte":new_airbyte_resource, "dbt": test_dbt_rpc_sync_resource})
 def run_airbyte_and_then_dbt_cli():
     dbt_run_op(start_after=[sync_salesforce(start_after=[sync_salesforce_fund()])])
+
+@job(resource_defs={"airbyte":new_airbyte_resource, "dbt": test_dbt_rpc_sync_resource})
+def run_airbyte_and_then_dbt_cli_new():
+    sync_salesforce(sync_salesforce_fund())
