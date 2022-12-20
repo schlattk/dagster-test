@@ -1,5 +1,5 @@
 from dagster import sensor, RunRequest
-from dagster.core.storage.pipeline_run import RunsFilter, PipelineRunStatus
+from dagster.core.storage.pipeline_run import RunsFilter, DagsterRunStatus
 from orchestrator_poc.jobs.airbyte_jobs import run_airbyte_and_then_dbt_cli_new
 from orchestrator_poc.jobs.dbt_jobs import run_dbt_job
 
@@ -8,7 +8,7 @@ def airbyte_sensor(context):
     run_records = context.instance.get_run_records(
         filters=RunsFilter(
             job_name="run_airbyte_and_then_dbt_cli_new",
-            statuses=[PipelineRunStatus.SUCCESS, PipelineRunStatus.FAILURE]
+            statuses=[DagsterRunStatus.SUCCESS, DagsterRunStatus.FAILURE]
         ),
         order_by="update_timestamp",
         ascending=False,
